@@ -10,8 +10,8 @@ Welcome to the exercises for our O'Reilly AI tutorial, *deep learning at scale: 
 
 In order to leverage our tutorial, we assume:
 
-- You have basic knowledge in Deep Learning.
+- You have basic knowledge of Deep Learning.
 - You have a laptop running MacOS or Linux.
 - Your laptop has the PEDL CLI installed. 
 
-If you would like to know how to install the PEDL CLI, please first downlaod our [CLI Python Wheel distribution]() and then follow the [instructions](https://docs.determined.ai/latest/install-cli.html) to install.
+If you would like to know how to install the PEDL CLI, please first download our [CLI Python Wheel distribution]() and then follow the [instructions](https://docs.determined.ai/latest/install-cli.html) to install.
