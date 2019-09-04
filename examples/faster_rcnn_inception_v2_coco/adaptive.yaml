@@ -1,0 +1,32 @@
+description: object_detection_adaptive
+bind_mounts:
+  - host_path: /home/ubuntu/coco/
+    container_path: /data/
+checkpoint_storage:
+  type: s3
+  access_key: AKIAYLIIO5PK6R73NMER
+  secret_key: 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
+  bucket: determined-ai-oreilly
+hyperparameters:
+  model.faster_rcnn.second_stage_box_predictor.mask_rcnn_box_predictor.fc_hyperparams.regularizer.l2_regularizer.weight:
+    type: double
+    minval: 0.0
+    maxval: 1.0
+  model.faster_rcnn.second_stage_box_predictor.mask_rcnn_box_predictor.use_dropout:
+    type: categorical
+    vals: [false, true]
+searcher:
+  name: adaptive_simple
+  metric: loss
+  max_steps: 100
+  max_trials: 5
+max_restarts: 0
+environment:
+  custom_image: tensorflow-object-detection
+data:
+  skip_checkpointing_input: true
+  object_detection:
+    pipeline_config_path: /data/faster_rcnn_inception_v2_coco/pipeline.config
+    sample_1_of_n_examples: 1
+    sample_1_of_n_eval_examples: 1
+    train_steps: 1
