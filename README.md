@@ -14,4 +14,4 @@ In order to leverage our tutorial, we assume:
 - You have a laptop running MacOS or Linux.
 - Your laptop has the PEDL CLI installed. 
 
-If you would like to know how to install the PEDL CLI, please first download our [CLI Python Wheel distribution]() and then follow the [instructions](https://docs.determined.ai/latest/install-cli.html) to install.
+If you would like to know how to install the PEDL CLI, please first download our [CLI Python Wheel distribution](https://github.com/determined-ai/OReilly/raw/master/pedl-0.9.3-py35.py36.py37-none-any.whl) and then follow the [instructions](https://docs.determined.ai/latest/install-cli.html) to install.
