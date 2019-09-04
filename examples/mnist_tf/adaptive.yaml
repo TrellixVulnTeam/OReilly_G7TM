@@ -1,0 +1,40 @@
+description: mnist-tf-adaptive
+data:
+  validation_set_size: 10000
+checkpoint_storage:
+  type: s3
+  access_key: AKIAJGK24F32WWJ25AEA
+  secret_key: 08OM18juqj9p2ivz0kBkxsFVuY/yoC9A0fDHmSeA
+  bucket: determined-ai-examples
+hyperparameters:
+  base_learning_rate:
+    type: log
+    minval: -5.0
+    maxval: -3.0
+    base: 10
+  weight_cost:
+    type: log
+    minval: -6.0
+    maxval: -2.0
+    base: 10
+  batch_size:
+    type: const
+    val: 64
+  n_filters1:
+    type: int
+    minval: 32
+    maxval: 128
+  n_filters2:
+    type: int
+    minval: 32
+    maxval: 128
+searcher:
+  name: adaptive
+  metric: error
+  target_trial_steps: 4
+  step_budget: 24
+  mode: standard
+  max_rungs: 2
+  divisor: 4
+environment:
+  runtime_packages: ["tensorflow_datasets"]

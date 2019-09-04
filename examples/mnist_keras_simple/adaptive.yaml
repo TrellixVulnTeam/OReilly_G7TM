@@ -1,0 +1,26 @@
+description: mnist-cnn-keras-entrypoint-adaptive
+batches_per_step: 16
+checkpoint_storage:
+  type: s3
+  access_key: AKIAYLIIO5PK6R73NMER
+  secret_key: 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
+  bucket: determined-ai-oreilly
+hyperparameters:
+  kernel_size: 3
+  dropout:
+    type: double
+    minval: 0.10
+    maxval: 0.40
+  activation:
+    type: categorical
+    vals: ["relu", "sigmoid"]
+searcher:
+  name: adaptive
+  metric: val_loss
+  target_trial_steps: 4
+  step_budget: 24
+  mode: standard
+  max_rungs: 2
+  divisor: 4
+entrypoint:
+  script: mnist_cnn.py
