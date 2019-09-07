@@ -6,9 +6,9 @@ data:
   validation_set_size: 10000
 checkpoint_storage:
   type: s3
-  access_key: AKIAJGK24F32WWJ25AEA
-  secret_key: 08OM18juqj9p2ivz0kBkxsFVuY/yoC9A0fDHmSeA
-  bucket: determined-ai-examples
+  bucket: determined-ai-oreilly
+  access_key: AKIAYLIIO5PK6R73NMER
+  secret_key: mD+csQWfQZMOA4f0VQSdV/kddHKRoAJuWLnYxN8v
 hyperparameters:
   batch_size:
     type: const
