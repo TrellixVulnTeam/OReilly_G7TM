@@ -1,0 +1,27 @@
+description: mnist-leslie-asis
+
+data:
+  base_url: https://s3-us-west-2.amazonaws.com/determined-ai-datasets/mnist/
+  training_data: train-images-idx3-ubyte.gz
+  training_labels: train-labels-idx1-ubyte.gz
+  validation_set_size: 10000
+
+checkpoint_storage:
+  type: s3
+  bucket: determined-ai-oreilly
+  access_key: AKIAYLIIO5PK6R73NMER
+  secret_key: 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
+
+hyperparameters:
+  # batch_size: 64
+  dropout: 0.5
+
+searcher:
+  name: single
+  metric: accuracy
+  smaller_is_better: False
+  max_steps: 200
+
+max_restarts: 0
+min_validation_period: 20
+
