@@ -1,4 +1,4 @@
-description: mnist-tf-adaptive
+description: mnist-tf-pbt
 data:
   validation_set_size: 10000
 checkpoint_storage:
@@ -29,12 +29,15 @@ hyperparameters:
     minval: 32
     maxval: 128
 searcher:
-  name: adaptive
+  name: pbt
   metric: error
-  target_trial_steps: 16
-  step_budget: 160
-  mode: conservative
-  max_rungs: 3
-  divisor: 4
+  population_size: 4
+  steps_per_round: 1
+  num_rounds: 3
+  replace_function:
+    truncate_fraction: 0.5
+  explore_function:
+    resample_probability: 0.5
+    perturb_factor: 0.1
 environment:
   runtime_packages: ["tensorflow_datasets"]

@@ -1,2 +1,2 @@
 environment:
-  custom_image: tensorflow-object-detection
+  custom_image: faster_rcnn_inception_v2_coco
