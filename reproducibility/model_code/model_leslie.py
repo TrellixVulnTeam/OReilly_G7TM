@@ -29,7 +29,7 @@ from mnist_utils import (
 import pedl
 from pedl.frameworks.keras import KerasTrial
 
-BATCH_SIZE = 1 
+BATCH_SIZE = 1
 
 class MultiTaskMNistTrial(KerasTrial):
     def __init__(self, hparams: Dict[str, Any]):
@@ -49,10 +49,10 @@ class MultiTaskMNistTrial(KerasTrial):
         return model
 
     def batch_size(self) -> int:
-        return BATCH_SIZE
+        return BATCH_SIZE 
 
     def optimizer(self) -> keras.optimizers.Optimizer:
-        return SGD(lr=0.001)
+        return SGD(lr = 0.001)
 
     def loss(self) -> dict:
         return categorical_crossentropy
@@ -90,9 +90,10 @@ def make_data_loaders(
     training_data_file = data_config["training_data"]
     training_labels_file = data_config["training_labels"]
     validation_set_size = data_config["validation_set_size"]
-
-    batch_size = BATCH_SIZE 
+    
     dataset_size = DATA_SET_SIZE
+    batch_size = BATCH_SIZE
+
 
     if not pedl.is_valid_url(base_url):
         raise ValueError("Invalid base_url: {}".format(base_url))

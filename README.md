@@ -34,7 +34,7 @@ More information about using the PEDL CLI can be found with the command `pedl --
 
 ## Files in repo
 
-- The `faster_rcnn_inception_v2_coco` folder adapts an open source model from the [TensorFlow Object Detection repo](https://github.com/tensorflow/models/tree/master/research/object_detection) to work with PEDL. The files there provide a wrapper to submit jobs. Example jobs, using a Faster R-CNN with Inception v2 architecture trained on the COCO dataset, can be found at the cluster address that was distributed as you entered the room. This folder is provided for illustration; please do not start experiments using files in this folder.
+- The `faster_rcnn_inception_v2_coco` folder adapts an open source model from the [TensorFlow Object Detection repo](https://github.com/tensorflow/models/tree/master/research/object_detection) to work with PEDL. The files there provide a wrapper to submit jobs. Example jobs, using a Faster R-CNN with Inception v2 architecture trained on the COCO dataset, can be found at the cluster address that was distributed as you entered the room. This folder is provided for illustration; **please do not start experiments using files in this folder.**
 
 - The `reproducibility` and `hyperparameter_tuning` folders contain code to work with the MNIST dataset this tutorial. Please start experiments from the files in this folder.
 
