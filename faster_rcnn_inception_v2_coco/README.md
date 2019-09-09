@@ -1,5 +1,9 @@
 # Tensorflow Object Detection Example
 
+**Please do not start experiments from this directory during the tutorial.** 
+
+It is unlikely you will see any interesting results within our time frame, while tying up the resources we've allocated for the tutorial. 
+
 ## Setup
 1. Build the image with `make build`
 2. Replace instances of REPLACE_WITH_PATH in yaml experiment config files
