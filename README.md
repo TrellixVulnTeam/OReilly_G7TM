@@ -18,9 +18,11 @@ To install: please first download our [CLI Python Wheel distribution](https://gi
 
 ## Files in repo
 
-- The RCNN folder adapts an open source model from the [TensorFlow Object Detection repo](https://github.com/tensorflow/models/tree/master/research/object_detection) to work with PEDL. The files there provide a wrapper to submit jobs. Example jobs, using a Faster R-CNN with Inception v2 architecture trained on the COCO dataset, can be found at the cluster address that was distributed as you entered the room. This folder is provided for illustration; please do not start experiments using files in this folder. 
+- The `faster_rcnn_inception_v2_coco` folder adapts an open source model from the [TensorFlow Object Detection repo](https://github.com/tensorflow/models/tree/master/research/object_detection) to work with PEDL. The files there provide a wrapper to submit jobs. Example jobs, using a Faster R-CNN with Inception v2 architecture trained on the COCO dataset, can be found at the cluster address that was distributed as you entered the room. This folder is provided for illustration; please do not start experiments using files in this folder. 
 
-- The examples folder contains code to work with the MNIST dataset during this tutorial. Please start experiments from the files in this folder. 
+- The `reproducibility` and `hyperparameter_tuning` folders contain code to work with the MNIST dataset this tutorial. Please start experiments from the files in this folder. 
+
+- The `examples` folder contains extra example code for working with MNIST. Feel free to take a look. 
 
 ## How did we do? 
 
