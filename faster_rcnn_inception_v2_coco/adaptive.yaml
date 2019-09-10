@@ -1,4 +1,4 @@
-description: object_detection_adaptive
+description: faster_rcnn_inception_v2_coco
 bind_mounts:
   - host_path: /home/ubuntu/coco/
     container_path: /data/
@@ -13,16 +13,30 @@ hyperparameters:
     minval: 0.0
     maxval: 1.0
   model.faster_rcnn.second_stage_box_predictor.mask_rcnn_box_predictor.use_dropout:
-    type: categorical
-    vals: [false, true]
+    type: const
+    val: true
+  model.faster_rcnn.second_stage_box_predictor.mask_rcnn_box_predictor.dropout_keep_probability:
+    type: double
+    minval: 0.7
+    maxval: 1.0
+  train_config.optimizer.momentum_optimizer.learning_rate.manual_step_learning_rate.initial_learning_rate:
+    type: log
+    base: 10
+    minval: -6
+    maxval: -2
+    count: 5
 searcher:
   name: adaptive_simple
+  mode: standard
   metric: loss
-  max_steps: 100
-  max_trials: 5
+  divisor: 4
+  max_rungs: 3
+  max_steps: 30
+  max_trials: 20
+  smaller_is_better: true
 max_restarts: 0
 environment:
-  custom_image: tensorflow-object-detection
+  custom_image: determinedai/tensorflow-object-detection-gpu
 data:
   skip_checkpointing_input: true
   object_detection:

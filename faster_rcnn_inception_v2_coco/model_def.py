@@ -2,12 +2,12 @@
 Trains a tensorflow object detection model
 """
 
-from typing import Any, Dict, Tuple
+from typing import Any, Dict
 
 import tensorflow
 from packaging import version
 
-from pedl.frameworks.tensorflow.estimator_trial import EstimatorTrial
+from pedl.frameworks.tensorflow.estimator_trial import EstimatorTrial, ServingInputReceiverFn
 from pedl.trial import get_trial_seed
 from pedl.util import get_experiment_config, get_hyperparameters
 
@@ -77,3 +77,6 @@ class ObjectDetectTrial(EstimatorTrial):
 
     def build_validation_spec(self, hparams: Dict[str, Any]) -> tf.estimator.EvalSpec:
         return self.validation_spec[0]
+
+    def build_serving_input_receiver_fns(self, hparams: Dict[str, Any]) -> Dict[str, ServingInputReceiverFn]:
+        return {"serving": self.train_and_eval_dict['predict_input_fn']}

@@ -33,7 +33,7 @@ searcher:
   metric: error
   smaller_is_better: true
   name: random
-  max_trials: 1
-  max_steps: 8
+  max_trials: 12
+  max_steps: 1
 environment:
   runtime_packages: ["tensorflow_datasets"]

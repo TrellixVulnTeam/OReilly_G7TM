@@ -1,0 +1,43 @@
+description: mnist-keras-random
+batches_per_step: 1024
+bind_mounts:
+  - host_path: /home/ubuntu
+    container_path: /tmp/work_dir
+data:
+  base_url: https://s3-us-west-2.amazonaws.com/determined-ai-datasets/mnist/
+  training_data: train-images-idx3-ubyte.gz
+  training_labels: train-labels-idx1-ubyte.gz
+  validation_set_size: 10000
+checkpoint_storage:
+  type: s3
+  bucket: determined-ai-oreilly
+  access_key: AKIAYLIIO5PK6R73NMER
+  secret_key: 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
+hyperparameters:
+  batch_size:
+    type: int
+    minval: 32
+    maxval: 128
+  dropout:
+    type: double
+    minval: 0.1
+    maxval: 0.8
+  learning_rate:
+    type: log
+    minval: -1.0
+    maxval: -0.1
+    base: 10
+  kernel_size:
+    type: int
+    minval: 3
+    maxval: 7
+  activation:
+    type: categorical
+    vals: ["relu", "sigmoid", "tanh"]
+searcher:
+  name: random
+  metric: accuracy
+  smaller_is_better: False
+  max_trials: 4
+  max_steps: 10
+min_validation_period: 1

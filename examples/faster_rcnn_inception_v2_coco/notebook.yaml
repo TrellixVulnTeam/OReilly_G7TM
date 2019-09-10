@@ -1,2 +1,0 @@
-environment:
-  custom_image: tensorflow-object-detection
