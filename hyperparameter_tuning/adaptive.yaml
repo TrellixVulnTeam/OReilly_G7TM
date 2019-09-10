@@ -24,8 +24,8 @@ hyperparameters:
     maxval: 0.8
   learning_rate:
     type: log
-    minval: -3.0
-    maxval: -0.25
+    minval: -1.0
+    maxval: -0.1
     base: 10
   kernel_size:
     type: int
