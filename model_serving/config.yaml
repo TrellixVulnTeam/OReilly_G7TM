@@ -1,0 +1,2 @@
+environment:
+  custom_image: determinedai/tensorflow-serving-object-detect
