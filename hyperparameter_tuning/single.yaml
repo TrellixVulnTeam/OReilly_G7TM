@@ -1,7 +1,7 @@
 description: mnist-keras-single
 batches_per_step: 1024
 bind_mounts:
-  - host_path: /tmp/work_dir
+  - host_path: /home/ubuntu
     container_path: /tmp/work_dir
 data:
   base_url: https://s3-us-west-2.amazonaws.com/determined-ai-datasets/mnist/
