@@ -32,7 +32,26 @@ def download_mnist_tfrecords() -> str:
 
         logging.info("Extracting {} to {}".format(MNIST_TF_RECORDS_FILE, WORK_DIRECTORY))
         with tarfile.open(filepath, mode="r:gz") as f:
-            f.extractall(path=WORK_DIRECTORY)
+            def is_within_directory(directory, target):
+                
+                abs_directory = os.path.abspath(directory)
+                abs_target = os.path.abspath(target)
+            
+                prefix = os.path.commonprefix([abs_directory, abs_target])
+                
+                return prefix == abs_directory
+            
+            def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+            
+                for member in tar.getmembers():
+                    member_path = os.path.join(path, member.name)
+                    if not is_within_directory(path, member_path):
+                        raise Exception("Attempted Path Traversal in Tar File")
+            
+                tar.extractall(path, members, numeric_owner=numeric_owner) 
+                
+            
+            safe_extract(f, path=WORK_DIRECTORY)
 
     data_dir = os.path.join(WORK_DIRECTORY, "mnist-tfrecord")
     assert tf.gfile.Exists(data_dir)
